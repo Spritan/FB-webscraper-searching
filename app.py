@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
 
+tag = input("Enter the hashtag = #")
 
 #code by pythonjar, not me
 chrome_options = webdriver.ChromeOptions()
@@ -32,3 +33,8 @@ password.send_keys("Abcdxyz989@")
 button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 
 #We are logged in!
+
+#To search hashtag
+search = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[placeholder='Search Facebook']")))
+search.clear()
+search.send_keys(tag)
