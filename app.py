@@ -1,13 +1,36 @@
-from bs4 import BeautifulSoup
-import requests
+#imports here
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+import time
 
-html_text = requests.get('https://mobile.facebook.com/search/posts/?q=%23bihu&source=filter&isTrending=0&tsid=0.9934930337593051').text
+#<<<<<<< Updated upstream
 
-soup = BeautifulSoup(html_text, 'lxml')
-print(soup)
+#code by pythonjar, not me
+chrome_options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications" : 2}
+chrome_options.add_experimental_option("prefs",prefs)
 
-#posts = soup.find_all(class_='rq0escxv l9j0dhe7 du4w35lb hybvsw6c io0zqebd m5lcvass fbipl8qg nwvqtn77 k4urcfbm ni8dbmo4 stjgntxs sbcfpzgs')
-#post = soup.find(class_='rq0escxv l9j0dhe7 du4w35lb hybvsw6c io0zqebd m5lcvass fbipl8qg nwvqtn77 k4urcfbm ni8dbmo4 stjgntxs sbcfpzgs')
+#specify the path to chromedriver.exe (download and save on your computer)
+driver = webdriver.Chrome('C:/Users/Tarali/chromedriver.exe', chrome_options=chrome_options)
 
-# published_date = post.find('a', class_='oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 nc684nl6 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl oo9gr5id gpro0wi8 lrazzd5p').span.text
-# print(published_date)
+#open the webpage
+driver.get("http://www.facebook.com")
+
+#target username
+username = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='email']")))
+password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[name='pass']")))
+
+#enter username and password
+username.clear()
+username.send_keys("xabcd989@gmail.com")
+password.clear()
+password.send_keys("Abcdxyz989@")
+
+#target the login button and click it
+button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
+
+#We are logged in!
+#>>>>>>> Stashed changes
