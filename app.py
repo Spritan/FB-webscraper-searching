@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import time
 
-#<<<<<<< Updated upstream
 
 #code by pythonjar, not me
 chrome_options = webdriver.ChromeOptions()
@@ -14,7 +13,7 @@ prefs = {"profile.default_content_setting_values.notifications" : 2}
 chrome_options.add_experimental_option("prefs",prefs)
 
 #specify the path to chromedriver.exe (download and save on your computer)
-driver = webdriver.Chrome('C:/Users/Tarali/chromedriver.exe', chrome_options=chrome_options)
+driver = webdriver.Chrome('C:/Users/Tarali/chromedriver.exe', options=chrome_options)
 
 #open the webpage
 driver.get("http://www.facebook.com")
@@ -33,4 +32,3 @@ password.send_keys("Abcdxyz989@")
 button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
 
 #We are logged in!
-#>>>>>>> Stashed changes
