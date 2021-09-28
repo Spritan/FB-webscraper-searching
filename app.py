@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 import time
 
 tag = input("Enter the hashtag = #")
+n_scrolls = int(input("Enter the number how much the page to be scrolls down : "))
 
 #code by pythonjar, not me
 chrome_options = webdriver.ChromeOptions()
@@ -38,3 +39,13 @@ button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELEC
 search = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "input[placeholder='Search Facebook']")))
 search.clear()
 search.send_keys(tag)
+
+#To open the hashtag page
+for i in [tag]:
+    driver.get('https://www.facebook.com/hashtag/' + tag + '/')
+    time.sleep(5)
+
+#How much scrolls you need
+    for j in range(0, n_scrolls):
+        driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(5)
