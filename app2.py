@@ -46,6 +46,20 @@ searchbox.send_keys(keyword)
 searchbox.send_keys(Keys.ENTER)
 searchbox.send_keys(Keys.ENTER)
 
-driver.execute_script("window.scrollTo(0,4000);")
-posts = driver.find_elements(By.CSS_SELECTOR,"a[name='oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz rq0escxv nhd2j8a9 nc684nl6 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of lzcic4wl oo9gr5id gpro0wi8 lrazzd5p']")
-print(posts)
+# posts_detected = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.__class__,'j83agx80 cbu4d94t obtkqiv7 sv5sfqaa')))
+time.sleep(5)
+
+posts = driver.find_element_by_xpath("//*/span/a/strong/span")
+print(posts.text)
+
+# try:
+#     posts = WebDriverWait(driver, 10).until(
+#         EC.presence_of_element_located((By.CLASS_NAME,"d2edcug0 hpfvmrgz qv66sw1b c1et5uql lr9zc1uh a8c37x1j keod5gw0 nxhoafnm aigsh9s9 embtmqzv fe6kdd0r mau55g9w c8b282yb hrzyx87i m6dqt4wy h7mekvxk hnhda86s oo9gr5id hzawbc8m"))
+#     )
+#     posts = driver.find_element_by_xpath("//*/span/a/strong/span")
+#     print(posts.text)
+# except:
+# driver.execute_script("window.scrollTo(0,4000);")
+#     posts = driver.find_element_by_xpath("//*/span/a/strong/span")
+#     print(posts.text)
+# driver.quit()
