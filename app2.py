@@ -45,12 +45,13 @@ keyword = '#bihu'
 searchbox.send_keys(keyword)
 searchbox.send_keys(Keys.ENTER)
 searchbox.send_keys(Keys.ENTER)
+searchbox.send_keys(Keys.ENTER)
+searchbox.send_keys(Keys.ENTER)
 
 # posts_detected = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.__class__,'j83agx80 cbu4d94t obtkqiv7 sv5sfqaa')))
-time.sleep(5)
 
-posts = driver.find_element_by_xpath("//*/span/a/strong/span")
-print(posts.text)
+# posts = driver.find_element_by_xpath("//*/span/a/strong/span")
+# print(posts.text)
 
 # try:
 #     posts = WebDriverWait(driver, 10).until(
