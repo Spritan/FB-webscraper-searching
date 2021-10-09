@@ -15,7 +15,7 @@ prefs = {"profile.default_content_setting_values.notifications" : 2}
 chrome_options.add_experimental_option("prefs",prefs)
 
 #specify the path to chromedriver.exe (download and save on your computer)
-driver = webdriver.Chrome('/usr/bin/chromedriver', options=chrome_options)
+driver = webdriver.edge('C:/Users/ritav/Downloads/Driver_Notes/msedgedriver')
 
 #open the webpage
 driver.get("http://www.facebook.com")
@@ -26,9 +26,9 @@ password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SE
 
 #enter username and password
 username.clear()
-username.send_keys("xabcd989@gmail.com")
+username.send_keys("ttggno1@gmail.com")
 password.clear()
-password.send_keys("Abcdxyz989@")
+password.send_keys("!=BDMP2r@$")
 
 #target the login button and click it
 button = WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[type='submit']"))).click()
