@@ -9,13 +9,23 @@ import time
 tag = input("Enter the hashtag = #",)
 n_scrolls = int(input("Enter the number how much the page to be scrolls down : "))
 
-#code by pythonjar, not me
+#code by stack overflow, not me
+
 chrome_options = webdriver.ChromeOptions()
 prefs = {"profile.default_content_setting_values.notifications" : 2}
 chrome_options.add_experimental_option("prefs",prefs)
 
+# System.setProperty("webdriver.chrome.driver", "C:/Users/ritav/Downloads/Driver_Notes/msedgedriver.exe");
+# ChromeOptions chromeOptions = new ChromeOptions();
+# chromeOptions.setBinary("C:\\Program Files (x86)\\Microsoft\\Edge Dev\\Application\\msedge.exe");
+# chromeOptions.setExperimentalOption("useAutomationExtension", false);
+# chromeOptions.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+# ChromeDriver driver = new ChromeDriver(chromeOptions);
+# driver.get("http://www.google.com");
+# driver.close();
+
 #specify the path to chromedriver.exe (download and save on your computer)
-driver = webdriver.edge('C:/Users/ritav/Downloads/Driver_Notes/msedgedriver')
+driver = webdriver.Chrome('C:/Users/ritav/Downloads/chromedriver.exe', options = chrome_options)
 
 #open the webpage
 driver.get("http://www.facebook.com")
@@ -58,8 +68,8 @@ for i in [tag]:
         time.sleep(3)
 
 
-posts = driver.find_element_by_css_selector("span > a > strong > span")
-print(posts.text)
+posts = driver.find_element_by_XPath("//*[@id='jsc_c_93']/div/div/span/div[1]/div/text()")
+print(posts)
 
 
 #WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "search[class='o9v6fnle cxmmr5t8 oygrvhab hcukyx3x c1et5uql ii04i59q'']")))
